@@ -1,6 +1,6 @@
 .jumbotron {
   padding-top: 7rem;
-  background-color: #dbc8af;
+  background-color: #90dfec;
 }
 
 #about {
@@ -12,12 +12,12 @@
 }
 
 #projects {
-  background-color: #dbc8af;
+  background-color: #90dfec;
   /* background: url("img/cool_bg.png"); */
 }
 
 footer {
-  background-color: #d36c52;
+  background-color: #0ec2e2;
 }
 
 section {
