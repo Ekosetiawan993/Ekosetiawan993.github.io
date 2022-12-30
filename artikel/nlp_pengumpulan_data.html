@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="../style.css" />
+
+    <title>Blog | Eko Setiawan</title>
+  </head>
+  <body id="home">
+    <!-- navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark shadow-sm" style="background-color: #0ec2e2">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">Home | Eko Setiawan</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- akhir navbar -->
+
+    <!-- Artikel -->
+    <section id="artikel">
+      <div class="container">
+        <div class="row text-left mb-3">
+          <div class="col">
+            <h2>NLP: Analisis Sentimen Pada Ulasan Produk</h2>
+          </div>
+        </div>
+        <div class="row justify-content-around fs-5">
+          <div class="col-md-10" style="font-size: 20px">
+            <p>
+              <span class="firstcharacter">K</span>etika berbelanja online, satu hal yang selalu saya lihat selain produk itu sendiri adalah ulasan produk tersebut. Ulasan umumnya terdiri dari 2 elemen, yaitu teks ulasan yang ditulis oleh
+              pengulas dan tingkat rating / bintang yang diberikan. Rata-rata rating / bintang yang didapat telah menjadi panduan saya dalam membeli produk.
+            </p>
+            <p>
+              Rata-rata bintang adalah metrik yang mudah didapat dan mudah untuk dimengerti. Namun, teks ulasan memberikan tantangan sendiri untuk dianalisis. Mungkin mudah jika teks yang harus kita baca jumlahnya tidak banyak. Namun ketika
+              jumlahnya banyak, tentu tidak akan mudah untuk membaca dan mengartikannya.
+            </p>
+
+            <p>
+              Bahkan jika kita menggunakan komputer pun akan memunculkan masalah baru. Komputer hanya mengerti bahasa mesin, sehingga untuk mengolah teks menggunakan komputer diperlukan bidang ilmu khusus yang dikenal dengan Natural
+              Language Processing (NLP).
+            </p>
+
+            <p>Pada rangkaian artikel ini, saya akan mencoba untuk mempraktikan beberapa teknik NLP untuk menganalisis sentimen pada ulasan produk.</p>
+            <div>
+              <h4>Bagian 1: Pengumpulan Data</h4>
+              <p>
+                Langkah pertama saya dalam proyek ini dimulai dengan mencari dan mengumpulkan data. Karena saya ingin <strike>proyek ini terasa keren(hehehe)</strike> belajar hal baru, saya memutuskan untuk mengambil sendiri data dari
+                internet.
+              </p>
+              <p>Sumber data yang saya coba gali tentu saja website beberapa e-commerce yang beroperasi di Indonesia.</p>
+
+              <p>Untuk mempersingkat waktu, saya menggunakan ekstensi web scraper io di Chrome dalam mengambil data.</p>
+              <p>Nah, masalah mulai muncul. E-commerce yang menjadi target pertama saya melalukan blok terhadap proses scraping data. Terpaksa saya harus mencari data ke e-commerce lain.</p>
+
+              
+                <figure class="text-center">
+                    <img src="../img/blog/art_1_1.jpg"  alt="Scraping diblok" width="500"/>
+                    <figcaption class="text-center" style="font-size: 12px;">
+                      Image by Writer</a>
+                    </figcaption>
+                </figure>
+
+            </div>
+            <div >
+                <p>Di situs e-commerce kedua, saya berhasil mengambil sejumlah data. Namun saya menyadari beberapa hal:</p>
+                <p>1. Produk yang baik adalah produk yang banyak mendapat ulasan positif, banyak dibeli dan terus dijual. Sebaliknya produk yang buruk tidak banyak terjual, otomatis tidak banyak yang memberi ulasan (baik ulasan positif maupun negatif) bahkan tidak dijual lagi.</p>
+                <figure class="text-center">
+                    <img src="../img/blog/art_1_2.jpg"  alt="Sebaran Bintang" width="200"/>
+                    <figcaption class="text-center" style="font-size: 12px;">
+                      Image by Writer</a>
+                    </figcaption>
+                </figure>
+
+                <p>2. Banyak pembeli yang hanya memberikan ulasan dalam bentuk bintang dan tidak menulis teks ulasan.</p>
+                <p>3. Banyak teks ulasan yang isinya tidak relevan dengan produk yang diulas.</p>
+                <figure class="text-center">
+                    <img src="../img/blog/art_1_3.jpg"  alt="Ulasan tidak relevan" width="300"/>
+                    <figcaption class="text-center" style="font-size: 12px;">
+                      Image by Writer</a>
+                    </figcaption>
+                </figure>
+
+                <p>4. Ada sejumlah produk yang memiliki ulasan yang sama berulang-ulang.</p>
+                <figure class="text-center">
+                    <img src="../img/blog/art_1_4.jpg"  alt="Ulasan Berulang" width="400"/>
+                    <figcaption class="text-center" style="font-size: 12px;">
+                      Image by Writer</a>
+                    </figcaption>
+                </figure>
+
+                <p>Sebagian besar data yang saya dapat dari situs e-commerce adalah ulasan positif dengan rating tinggi. Agak sulit mendapatkan cukup ulasan negatif dari produk yang kurang baik. 
+                </p>
+                <p>Hal ini membuat data yang saya kumpulkan tidak seimbang dan menimbulkan masalah untuk proyek klasifikasi sentimen.</p>
+                <p>Untuk mendapatkan data yang lebih seimbang saya beralih ke sumber data lain, situs khusus ulasan produk. Saya mencoba untuk mencari data ulasan negatif terlebih dahulu di produk dengan rata-rata bintang terendah. </p>
+                <p>Produk dengan ulasan negatif jarang bertahan di pasaran sehingga data ulasannya akan jauh lebih sedikit, sehingga masuk akal rasanya jika saya mencari data ulasan negatif terlebih dahulu.</p>
+                <p>Berikut adalah contoh ulasan yang saya dapatkan:</p>
+                <figure class="text-center">
+                    <img src="../img/blog/art_1_5.jpg"  alt="Ulasan Hometester" width="600"/>
+                    <figcaption class="text-center" style="font-size: 12px;">
+                      Image by Writer</a>
+                    </figcaption>
+                </figure>
+
+                <p>Berbeda dengan ulasan di e-commerce, ulasan di situs ini cenderung lebih panjang dan isinya mendeskripsikan pengalaman penggunaan suatu produk.
+                </p>
+                <p>Secara sekilas, data ini juga memiliki sejumlah masalah. Penyebutan nama produk atau merk, penggunaan singkatan dan emoticon tentu menjadi tantangan dalam NLP. Walau begitu, saya memutuskan untuk menggunakan data ini untuk melanjutkan proyek.</p>
+                <p>Untuk menjaga fokus proyek, saya hanya mengambil teks ulasan dan jumlah bintang yang berikan.</p>
+                <p>Berikut adalah contoh data yang telah saya ambil:</p>
+                <figure class="text-center">
+                    <img src="../img/blog/art_1_6.jpg"  alt="Contoh Data" width="800"/>
+                    <figcaption class="text-center" style="font-size: 12px;">
+                      Image by Writer</a>
+                    </figcaption>
+                </figure>
+
+                <p>Data ini bisa digunakan untuk berbagai macam proyek NLP, diantaranya analisis sentimen terhadap suatu produk dan klasifikasi baik/buruk suatu teks ulasan.
+                </p>
+                <p>Dengan demikian selesai sudah tahap pengumpulan data, selanjutnya data ini akan saya proses sesuai dengan tujuan proyek.</p>
+
+            </div>
+
+          </div>
+
+          <div class="col-md-2" style="font-size: 17px; background-color: #bfeaf2">
+            
+          </div>
+        </div>
+      </div>
+
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#0ec2e2"
+          fill-opacity="1"
+          d="M0,224L60,218.7C120,213,240,203,360,218.7C480,235,600,277,720,261.3C840,245,960,171,1080,160C1200,149,1320,203,1380,229.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+        ></path>
+      </svg>
+      
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <footer class="text-white text-center pb-5">
+      <p>Thanks to <a href="https://youtu.be/LkR-9Z1sle8"> Sandika Galih</a> for his great tutorial</p>
+      
+    </footer>
+    <!-- Akhir Footer -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

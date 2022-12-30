@@ -7,6 +7,11 @@
   background-color: #f3f4f5;
 }
 
+#artikel {
+    background-color: #f3f4f5;
+    padding-top: 7rem;
+  }
+
 #contact {
   background-color: #f3f4f5;
 }
@@ -23,3 +28,29 @@ footer {
 section {
   padding-top: 4rem;
 }
+
+#section_footer {
+    padding-top: 1rem;
+  }
+
+.firstcharacter {
+    color: rgb(2, 9, 10);
+    float: left;
+    /* font-family: Georgia; */
+    font-size: 60px;
+    line-height: 50px;
+    padding-top: 3px;
+    padding-right: 8px;
+    padding-left: 0px;
+  }
+
+.numbering {
+    color: rgb(2, 9, 10);
+    float: left;
+    /* font-family: Georgia; */
+    font-size: 30px;
+    line-height: 50px;
+    padding-top: 3px;
+    padding-right: 8px;
+    padding-left: 0px;
+  }
