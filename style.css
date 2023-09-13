@@ -1,4 +1,4 @@
-.jumbotron {
+/* .jumbotron {
   padding-top: 7rem;
   background-color: #90dfec;
 }
@@ -18,7 +18,8 @@
 
 #projects {
   background-color: #90dfec;
-  /* background: url("img/cool_bg.png"); */
+  
+  /* background: url("img/cool_bg.png"); 
 }
 
 footer {
@@ -53,4 +54,4 @@ section {
     padding-top: 3px;
     padding-right: 8px;
     padding-left: 0px;
-  }
+  } */
